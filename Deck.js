@@ -51,7 +51,6 @@ function Deck() {
     }
   }
 
-  /** Return draw button (disabled if shuffling) */
   function renderDrawBtnIfOk() {
     if (!deck) return null;
 
