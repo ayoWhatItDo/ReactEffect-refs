@@ -4,7 +4,6 @@ import axios from "axios";
 import "./Deck.css";
 
 const API_BASE_URL = "https://deckofcardsapi.com/api/deck";
-/** Deck: uses deck API, allows drawing card at a time. */
 
 function Deck() {
   const [deck, setDeck] = useState(null);
@@ -19,9 +18,6 @@ function Deck() {
     fetchData();
   }, []);
 
-
-
-  /** Draw card: change the state & effect will kick in. */
   async function draw() {
     try {
       const drawRes = await axios.get(`${API_BASE_URL}/${deck.deck_id}/draw/`);
@@ -43,7 +39,6 @@ function Deck() {
     }
   }
 
-  /** Shuffle: change the state & effect will kick in. */
   async function startShuffling() {
     setIsShuffling(true);
     try {
@@ -69,8 +64,7 @@ function Deck() {
       </button>
     );
   }
-
-  /** Return shuffle button (disabled if already is) */
+  
   function renderShuffleBtnIfOk() {
     if (!deck) return null;
     return (
